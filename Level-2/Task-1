@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Neon Hamburger Navigation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* ✨ Neon Navigation Bar (no green) */
+    .topnav {
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.8);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 0.6rem 1rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #00fff5;
+      text-shadow: 0 0 10px #00fff5, 0 0 20px #00fff5;
+      animation: flicker 2s infinite alternate;
+    }
+
+    .topnav a {
+      color: #fff;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 18px;
+      display: block;
+      text-shadow: 0 0 8px #00fff5;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .topnav a:hover {
+      color: #00fff5;
+      text-shadow: 0 0 15px #00fff5;
+    }
+
+    .topnav a.active {
+      color: #00fff5;
+      font-weight: bold;
+      text-shadow: 0 0 20px #00fff5;
+    }
+
+    #myLinks {
+      display: none;
+      flex-direction: column;
+      background: rgba(15, 32, 39, 0.95);
+      backdrop-filter: blur(12px);
+      text-align: center;
+      width: 100%;
+      padding: 1rem 0;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      animation: slideIn 0.4s ease;
+    }
+
+    .topnav a.icon {
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 14px 16px;
+      background: #000;
+      cursor: pointer;
+    }
+
+    .topnav .icon i {
+      font-size: 22px;
+      color: white;
+      transition: color 0.3s ease;
+    }
+
+    .topnav .icon:hover i {
+      color: #00fff5;
+      text-shadow: 0 0 10px #00fff5;
+    }
+
+    /* ✨ Neon Flicker Animation */
+    @keyframes flicker {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow:
+          0 0 4px #00fff5,
+          0 0 11px #00fff5,
+          0 0 19px #00fff5,
+          0 0 40px #00fff5;
+      }
+      20%, 24%, 55% {
+        text-shadow: none;
+      }
+    }
+
+    /* ✨ Slide-in Animation */
+    @keyframes slideIn {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    main {
+      padding-top: 120px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #00fff5;
+      text-shadow: 0 0 10px #00fff5;
+      animation: flicker 2s infinite alternate;
+    }
+
+    p {
+      color: #a5f6f7;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 1rem auto;
+    }
+
+    /* Desktop view: show horizontal links */
+    @media (min-width: 768px) {
+      #myLinks {
+        display: flex !important;
+        flex-direction: row;
+        background: transparent;
+        position: static;
+        width: auto;
+        padding: 0;
+        animation: none;
+      }
+      .topnav a.icon {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topnav">
+    <div class="logo">NeonNav</div>
+    <div id="myLinks">
+      <a href="#home" class="active">Home</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+
+  <main>
+    <h1>Creative Neon Navigation</h1>
+    <p>This clean neon navigation bar has a glowing hamburger menu without any green color, perfect for both desktop and mobile.</p>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("myLinks");
+      if (menu.style.display === "flex" || menu.style.display === "block") {
+        menu.style.display = "none";
+      } else {
+        menu.style.display = "flex";
+      }
+    }
+  </script>
+</body>
+</html>
