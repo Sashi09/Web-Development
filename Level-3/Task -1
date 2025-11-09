@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+body{
+background-image:url("https://unblast.com/wp-content/uploads/2021/01/Space-Background-Images.jpg");
+margin: 0;
+font-family: Arial, sans-serif;
+color:white;
+}
+
+h2 {
+  text-align: center;
+  margin: 20px;
+}
+
+div.gallery-item {
+  margin: 5px;
+  border: 1px solid #ccc;
+  width: 180px;
+}
+
+div.gallery-item:hover {
+  border: 1px solid #777;
+}
+
+div.gallery-item img {
+  width: 100%;
+  height: auto;
+}
+
+div.gallery-item div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+div.gallery-item:first-child img {
+  height: 190px;
+  object-fit: cover;
+}
+
+</style>
+</head>
+<body>
+
+<h2>Image Gallery</h2><br><br>
+
+<div class="gallery">
+
+<div class="gallery-item">
+  <a target="_blank" href="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfrHUVFKISSi51GKMffdT5WGMwbadgBwCbqTFgKWx2YaXesUdB54TJx5rFCR9NysGl6Ro1PJSYQh3i0G3HjroZhjDhnsStz5o1IrW6_vD1MibZC3_rQ8h4jV9RTBR72df1dz9pI?key=JRLClgELxRxJh41wa_XLvwfz">
+    <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfrHUVFKISSi51GKMffdT5WGMwbadgBwCbqTFgKWx2YaXesUdB54TJx5rFCR9NysGl6Ro1PJSYQh3i0G3HjroZhjDhnsStz5o1IrW6_vD1MibZC3_rQ8h4jV9RTBR72df1dz9pI?key=JRLClgELxRxJh41wa_XLvwfz" alt="AI Trends" width="600" height="400">
+  </a>
+  <div class="desc">AI Trends</div>
+</div>
+
+<div class="gallery-item">
+  <a target="_blank" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8t5dHD-BcXAvHvA4XIm-cNXfPLO4MWt6gKKIQwgom--CtFW0HAB7C_lK7ZyAMXqwkBEg&usqp=CAU">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8t5dHD-BcXAvHvA4XIm-cNXfPLO4MWt6gKKIQwgom--CtFW0HAB7C_lK7ZyAMXqwkBEg&usqp=CAU" alt="Forest" width="600" height="400">
+  </a>
+  <div class="desc">Whispers of the Moon</div>
+</div>
+
+<div class="gallery-item">
+  <a target="_blank" href="https://i.pinimg.com/736x/c6/e0/4d/c6e04daa02c89e5fb13a9b608241dfb4.jpg">
+    <img src="https://i.pinimg.com/736x/c6/e0/4d/c6e04daa02c89e5fb13a9b608241dfb4.jpg" alt="Macro Dahlia" width="600" height="400">
+  </a>
+  <div class="desc">Macro Dahlia</div>
+</div>
+
+<div class="gallery-item">
+  <a target="_blank" href="https://images.stockcake.com/public/8/4/6/846d2b6a-4e7f-4015-a6a6-34e4e681714d_large/snowy-mountain-peak-stockcake.jpg">
+    <img src="https://images.stockcake.com/public/8/4/6/846d2b6a-4e7f-4015-a6a6-34e4e681714d_large/snowy-mountain-peak-stockcake.jpg" alt="Mountains" width="600" height="400">
+  </a>
+  <div class="desc">Mountains</div>
+</div>
+
+</div>
+
+</body>
+</html>
