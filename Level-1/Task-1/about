@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About My Full Stack Project</title>
+
+    <style>
+        /* --- INTERNAL CSS STYLES --- */
+        
+        /* Reset and Base Styles */
+        * {
+            box-sizing: border-box; 
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-image: url('https://thumbs.dreamstime.com/b/bulb-future-technology-innovation-background-creative-idea-concept-artificial-intelligence-background-artificial-intelligence-141652156.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff; 
+            line-height: 1.8; 
+        }
+
+        /* --- CONTENT CENTERING & STYLING --- */
+        .page-content {
+            /* Centers the entire block horizontally and pushes it down */
+            max-width: 800px; 
+            margin: 80px auto; 
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.65); /* Dark overlay for readability */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Heading and Paragraph Styling */
+        h4, p {
+            color: white;
+            text-align: centre;
+        }
+        
+        h4 {
+            font-size: 3.5em; /* Large heading */
+            margin-bottom: 25px;
+        }
+        
+        p {
+            font-size: 1.3em; /* Big font size for modern look */
+            margin-bottom: 0;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="page-content">
+        
+        <h4>ABOUT THE PROJECT</h4>
+        
+        <p>
+            I built this project to complete the Level 1 tasks for the Cognifyz Technologies internship, which primarily tested my skills in HTML and CSS. The final webpage successfully combines all three assignments: I created a simple page with a heading, paragraph, and an image, designed a working subscription form with an input field, and coded a basic three-link navigation menu. This entire process helped me establish a solid, clean foundation in front-end development. 
+        </p>
+    </div>
+
+</body>
+</html>
