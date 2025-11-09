@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    
+    <style>
+        /* Specific styling for the registration page */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Container for the form to manage size and shadow */
+        .registration-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px 30px;
+            background-color: #ffffff;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+        }
+
+        /* Form header style */
+        .registration-form h2 {
+            text-align: center;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            padding-bottom: 5px;
+        }
+
+        /* Styling for each input group */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #333;
+            font-size: 15px;
+        }
+
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box; 
+            font-size: 16px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #0099ff;
+            box-shadow: 0 0 5px rgba(0, 153, 255, 0.5);
+            outline: none;
+        }
+
+        /* Style for the submit button */
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #0099ff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #007acc;
+        }
+
+        /* Style for the login link text */
+        .login-link {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .login-link a {
+            color: #0099ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <form class="registration-form" id="registrationForm">
+            <h2>Sign Up</h2>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="example@domain.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" 
+                       id="password" 
+                       name="password" 
+                       required 
+                       placeholder="Min 8 chars, incl. Upper and Lowercase" 
+                       minlength="8"
+                       
+                       pattern="(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                       
+                       title="Password must contain at least one uppercase letter, one lowercase letter, and be at least 8 characters long.">
+            </div>
+            
+            <button type="submit" class="submit-btn">Register Account</button>
+
+            <p class="login-link">
+                Already registered? <a href="Login.html">Login Here</a>
+            </p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            // Prevents the form from submitting and causing a file not found error
+            event.preventDefault(); 
+            
+            const form = event.target;
+
+            // 1. Check HTML validity (including the new pattern/minlength)
+            if (!form.checkValidity()) {
+                // The browser will show the title message if the pattern is not met.
+                return;
+            }
+
+            // --- Submission and Save Logic ---
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value; 
+
+            // 🔑 CRITICAL: Save the data to localStorage for the Login.html page to retrieve
+            const userData = { email: email, password: password };
+            localStorage.setItem('registeredUser', JSON.stringify(userData)); 
+
+            // Display success message
+            alert(`✅ Registration Successful!\n\nEmail: ${email}\nPassword: [Saved]\n\nYour data is saved!`);
+
+            // Clear the form after simulated submission
+            form.reset();
+
+            // ASK FOR NEXT STEP (Login)
+            const wantsToLogin = confirm("🎉 Registration complete! Would you like to log in now?");
+
+            if (wantsToLogin) {
+                // Navigate to the Login page
+                window.location.href = "Login.html";
+            }
+        });
+    </script>
+</body>
+</html>
