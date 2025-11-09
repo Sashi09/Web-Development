@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navigation Menu </title>
+    
+    <style>
+        /* Basic Reset and Setup */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+        }
+
+        /* --- Header Styles --- */
+        header {
+            background-color: #007bff; /* Bright blue header */
+            color: white;
+            padding: 10px 20px;
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space out logo and nav */
+            align-items: center; /* Vertically center items */
+            min-height: 60px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 1.8em;
+            font-weight: bold;
+            order: 1; /* Default order for desktop */
+        }
+
+        /* Nav links for desktop */
+        .nav-links {
+            order: 2; /* Default order for desktop */
+        }
+
+        .nav-links ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links ul li a:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Hamburger button (Hidden on Desktop) */
+        .menu-btn {
+            display: none; /* Hidden by default */
+            font-size: 2em;
+            cursor: pointer;
+            color: white;
+            background: none;
+            border: none;
+            order: 3; /* Default order for desktop */
+            z-index: 20; /* Ensure it's on top */
+        }
+
+        /* Checkbox to control menu state (Hidden) */
+        #menu-toggle-alt {
+            display: none;
+        }
+
+        /* --- Main Content --- */
+        main {
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+            color: #333;
+            font-size: 1.1em;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        main h1 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+
+        /* --- Mobile-Specific Styles (Media Query) --- */
+        @media (max-width: 768px) {
+            header {
+                flex-wrap: wrap; /* Allow items to wrap to next line */
+            }
+
+            .logo {
+                flex-basis: 50%; /* Take up half width on mobile */
+                text-align: left;
+                order: 1;
+            }
+
+            .menu-btn {
+                display: block; /* Show hamburger button */
+                order: 2;
+                flex-basis: 50%; /* Take up half width on mobile */
+                text-align: right;
+            }
+
+            .nav-links {
+                width: 100%; /* Full width for mobile menu */
+                order: 3; /* Place below logo and button */
+                display: none; /* Hide by default */
+                background-color: #0069d9; /* Slightly darker than header */
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links ul {
+                flex-direction: column; /* Stack links vertically */
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .nav-links ul li a {
+                padding: 15px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-links ul li:last-child a {
+                border-bottom: none;
+            }
+
+            /* Show menu when checkbox is checked */
+            #menu-toggle-alt:checked ~ .nav-links {
+                display: block; /* Make the menu visible */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">MyApp</a>
+        
+        <input type="checkbox" id="menu-toggle-alt">
+        
+        <label for="menu-toggle-alt" class="menu-btn">&#9776;</label>
+
+        <nav class="nav-links">
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h1>Welcome to My App!</h1>
+        <p>This is an alternative responsive menu.</p>
+        <p>Try resizing your browser window to see how it adapts to different screen sizes!</p>
+    </main>
+</body>
+</html>
