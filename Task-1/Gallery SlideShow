@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Slideshow (JavaScript)</title>
+    
+    <style>
+        /* --- GLOBAL & BODY STYLES --- */
+        body {
+            background-image: url("https://unblast.com/wp-content/uploads/2021/01/Space-Background-Images.jpg");
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        /* --- SLIDESHOW CONTAINER (The Viewport) --- */
+        .slideshow-container {
+            width: 700px;
+            height: 450px; 
+            overflow: hidden; 
+            border: 5px solid #00c9ff;
+            box-shadow: 0 0 30px rgba(0, 201, 255, 0.5);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        /* --- NAVIGATION BUTTONS --- */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 10;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* --- SLIDES WRAPPER (The moving strip of images) --- */
+        .slides {
+            /* 4 unique items = 400% width */
+            width: 400%; 
+            height: 100%;
+            /* Remove animation and add transition for smooth manual slide */
+            transition: transform 0.5s ease-in-out;
+        }
+
+        /* --- GALLERY ITEMS (The actual slide content) --- */
+        .gallery-item {
+            width: 25%; /* Each item takes 1/4th of the wrapper */
+            height: 100%;
+            float: left;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* --- DESCRIPTION BAR --- */
+        .gallery-item div.desc {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Image Gallery Slideshow</h2>
+
+<div class="slideshow-container">
+    
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <div class="slides" id="slides-wrapper">
+
+        <div class="gallery-item">
+            <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfrHUVFKISSi51GKMffdT5WGMwbadgBwCbqTFgKWx2YaXesUdB54TJx5rFCR9NysGl6Ro1PJSYQh3i0G3HjroZhjDhnsStz5o1IrW6_vD1MibZC3_rQ8h4jV9RTBR72df1dz9pI?key=JRLClgELxRxJh41wa_XLvwfz" alt="AI Trends">
+            <div class="desc">AI Trends</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8t5dHD-BcXAvHvA4XIm-cNXfPLO4MWt6gKKIQwgom--CtFW0HAB7C_lK7ZyAMXqwkBEg&usqp=CAU" alt="Forest">
+            <div class="desc">Whispers of the Moon</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.pinimg.com/736x/c6/e0/4d/c6e04daa02c89e5fb13a9b608241dfb4.jpg" alt="Macro Dahlia">
+            <div class="desc">Macro Dahlia</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.stockcake.com/public/8/4/6/846d2b6a-4e7f-4015-a6a6-34e4e681714d_large/snowy-mountain-peak-stockcake.jpg" alt="Mountains">
+            <div class="desc">Mountains</div>
+        </div>
+
+        </div>
+    
+</div>
+
+<script>
+    // Get the slides wrapper element
+    const slidesWrapper = document.getElementById('slides-wrapper');
+    // The number of unique slides
+    const slideCount = 4;
+    // Current slide index (0-indexed: 0 is the first slide)
+    let slideIndex = 0; 
+
+    // Function to change the slide when a button is clicked
+    function plusSlides(n) {
+        // Calculate the new index
+        slideIndex += n;
+
+        // --- Boundary Checks ---
+        // If the new index goes past the last slide (index 3), wrap around to 0
+        if (slideIndex >= slideCount) {
+            slideIndex = 0;
+        }
+        // If the new index goes below the first slide (index 0), wrap around to the last slide (3)
+        if (slideIndex < 0) {
+            slideIndex = slideCount - 1;
+        }
+
+        // Calculate the percentage offset needed
+        // Slide 0: 0% offset
+        // Slide 1: -25% offset
+        // Slide 2: -50% offset
+        // Slide 3: -75% offset
+        const offset = -slideIndex * 100 / slideCount;
+
+        // Apply the transformation to move the slide strip
+        slidesWrapper.style.transform = `translateX(${offset}%)`;
+    }
+
+    // Initialize the slideshow to the first slide
+    plusSlides(0);
+</script>
+
+</body>
+</html>
