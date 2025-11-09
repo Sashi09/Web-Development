@@ -1,0 +1,164 @@
+* {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- Task 3: NAVIGATION MENU STYLING --- */
+.main-nav {
+    background-color: #34495e; 
+    padding: 10px 0;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex; 
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.main-nav li {
+    margin: 0 15px;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none; 
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.main-nav a:hover {
+    background-color: #4a6682;
+}
+
+
+/* --- Task 1: PAGE CONTENT STYLING --- */
+.page-content {
+    max-width: 900px;
+    margin: 30px auto; 
+    padding: 30px;
+    background-color: #ffffff; 
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #0077b6;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+p {
+    text-align: justify;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+/* Global image styling */
+img {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto; 
+    border-radius: 8px;
+    border: 3px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 30px 0;
+}
+
+/* --- New Styles to fix Image Readability (Overlay) --- */
+
+/* 1. Target the new wrapper to inherit image centering/sizing */
+.image-wrapper {
+    position: relative; 
+    display: block;
+    width: 100%;
+    max-width: 600px; /* Inherits max-width from the img rule */
+    margin: 0 auto; /* Centers the wrapper */
+}
+
+/* 2. Create the transparent layer on top of the image */
+.image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* This line adds a dark, 20% transparent overlay to mute the background */
+    background-color: rgba(0, 0, 0, 0.2); 
+    z-index: 1; /* Puts the overlay above the image */
+    border-radius: 8px; /* Applies the rounded corners to the overlay */
+}
+
+/* 3. Ensure the image fits inside the wrapper */
+.image-wrapper img {
+    z-index: 0; /* Puts the image behind the overlay */
+}
+
+/* --- Task 2: BASIC FORM STYLING --- */
+.form-section {
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+.form-section h2 {
+    color: #34495e;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box; 
+}
+
+button[type="submit"] {
+    background-color: #28a745; 
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+    display: block; 
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
